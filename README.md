@@ -1,4 +1,14 @@
-# README
+# Simple Blog
+
+Forms With Multiple Submit Buttons:
+
+- Publish
+- Save as Draft
+
+From a GoRails tutorial [Episode 34](https://gorails.com/episodes/34)
+
+
+## README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

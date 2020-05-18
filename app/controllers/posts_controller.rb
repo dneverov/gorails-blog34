@@ -42,6 +42,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     @post.published_at = Time.zone.now if publishing?
+    @post.published_at = nil if unpublishing?
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -78,7 +80,7 @@ class PostsController < ApplicationController
       params[:commit] == "Publish"
     end
 
-    def saving_as_draft?
-      params[:commit] == "Save as Draft"
+    def unpublishing?
+      params[:commit] == "Unpublish"
     end
 end
