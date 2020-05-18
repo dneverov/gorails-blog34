@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.published_at = Time.zone.now if publishing?
 
     respond_to do |format|
       if @post.save
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.published_at = Time.zone.now if publishing?
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -70,5 +72,13 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :body, :published_at)
+    end
+
+    def publishing?
+      params[:commit] == "Publish"
+    end
+
+    def saving_as_draft?
+      params[:commit] == "Save as Draft"
     end
 end

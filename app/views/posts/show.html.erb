@@ -11,8 +11,11 @@
 </p>
 
 <p>
-  <strong>Published at:</strong>
-  <%= @post.published_at %>
+  <% if @post.published? %>
+    <span class="label label-success" title="<%= @post.published_at %>">Published</span>
+  <% else %>
+    <span class="label label-default">Draft</span>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
