@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-  has_many :posts
+  include SoftDeletable
   
+  has_many :posts
 end
