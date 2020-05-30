@@ -8,7 +8,7 @@ Forms With Multiple Submit Buttons:
 From a GoRails tutorial [Episode 34](https://gorails.com/episodes/34)
 
 ActiveSupport Concerns: Making a Soft Deletable module [Episode 42](https://gorails.com/episodes/42)
-
+*(Branch: `episode-42_soft-deletable`)*
 
 ## README
 
